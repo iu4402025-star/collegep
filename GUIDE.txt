@@ -1,0 +1,303 @@
+PDF STUDY & QUESTION PAPER GENERATOR
+======================================
+
+FILES
+-----
+1. app.py
+   Main Streamlit application.
+
+2. requirements.txt
+   Python packages required by the application.
+
+3. GUIDE.txt
+   Installation, GitHub, and Streamlit deployment instructions.
+
+
+==================================================
+PART 1 — INSTALL PYTHON
+==================================================
+
+Download and install Python 3.11 or newer from:
+
+https://www.python.org/downloads/
+
+During Windows installation, select:
+
+Add Python to PATH
+
+
+==================================================
+PART 2 — CREATE PROJECT FOLDER
+==================================================
+
+Create a folder:
+
+pdf-study-question-generator
+
+Put these files inside it:
+
+pdf-study-question-generator/
+    app.py
+    requirements.txt
+    GUIDE.txt
+
+
+==================================================
+PART 3 — CREATE VIRTUAL ENVIRONMENT
+==================================================
+
+Open Command Prompt inside the project folder.
+
+Run:
+
+python -m venv .venv
+
+Windows:
+
+.venv\Scripts\activate
+
+macOS/Linux:
+
+source .venv/bin/activate
+
+
+==================================================
+PART 4 — INSTALL REQUIREMENTS
+==================================================
+
+Run:
+
+pip install -r requirements.txt
+
+
+==================================================
+PART 5 — RUN THE APPLICATION
+==================================================
+
+Run:
+
+streamlit run app.py
+
+The application normally opens at:
+
+http://localhost:8501
+
+
+==================================================
+PART 6 — TEST THE APPLICATION
+==================================================
+
+1. Upload a Computer Science textbook PDF.
+2. Wait for the PDF to be processed.
+3. Select a chapter/unit.
+4. Select MCQs, Short Questions, or Long Questions.
+5. Select the number of questions.
+6. Enter your OpenAI API key if you want AI generation.
+7. Click Generate Questions.
+8. Open the Question Paper tab.
+9. Select total marks and number of questions.
+10. Generate the complete paper.
+11. Download the paper as question_paper.txt.
+
+
+==================================================
+PART 7 — GITHUB
+==================================================
+
+Go to:
+
+https://github.com/
+
+Create a new repository:
+
+pdf-study-question-generator
+
+Upload:
+
+app.py
+requirements.txt
+GUIDE.txt
+
+Do NOT upload:
+
+API keys
+passwords
+.env files
+secret keys
+
+
+==================================================
+PART 8 — STREAMLIT COMMUNITY CLOUD
+==================================================
+
+Go to:
+
+https://share.streamlit.io/
+
+Sign in with GitHub.
+
+Choose:
+
+Create app
+
+Select:
+
+Repository:
+pdf-study-question-generator
+
+Branch:
+main
+
+Main file:
+app.py
+
+Then deploy.
+
+
+==================================================
+PART 9 — OPENAI API KEY
+==================================================
+
+The application can accept an OpenAI API key through the sidebar.
+
+For a deployed application, a safer approach is to use Streamlit Secrets.
+
+In Streamlit deployment settings, add:
+
+OPENAI_API_KEY = "your-api-key"
+
+For production, modify app.py to read:
+
+api_key = st.secrets["OPENAI_API_KEY"]
+
+instead of asking the user to type the key.
+
+Never commit an API key to GitHub.
+
+
+==================================================
+PART 10 — IMPORTANT PDF LIMITATION
+==================================================
+
+The application extracts selectable text from PDF files.
+
+If the textbook is a scanned PDF containing only images, pypdf may extract little or no text.
+
+For scanned books, add an OCR stage in a future version.
+
+Recommended future architecture:
+
+PDF
+ |
+ v
+OCR
+ |
+ v
+Text
+ |
+ v
+Chapter Detection
+ |
+ v
+Selected Chapter
+ |
+ v
+AI Question Generator
+ |
+ v
+Question Paper
+ |
+ +--> DOCX
+ +--> PDF
+ +--> TXT
+
+
+==================================================
+PART 11 — FUTURE FEATURES
+==================================================
+
+Recommended next development stages:
+
+1. Better chapter detection.
+2. OCR for scanned textbooks.
+3. Multiple textbook upload.
+4. Subject/class database.
+5. Question bank.
+6. Duplicate-question detection.
+7. Bloom's taxonomy selection.
+8. Difficulty balancing.
+9. Automatic marks calculation.
+10. School examination pattern templates.
+11. DOCX export.
+12. PDF export.
+13. Answer key generation.
+14. Separate teacher/student versions.
+15. Save generated papers.
+16. User login.
+17. Admin dashboard.
+18. Question editing before download.
+
+
+==================================================
+EXAMPLE 50-MARK PAPER
+==================================================
+
+A possible configuration:
+
+MCQs:
+10 × 1 = 10
+
+Short Questions:
+8 × 3 = 24
+
+Long Questions:
+2 × 8 = 16
+
+TOTAL:
+50 marks
+
+The application allows you to change the numbers according to your required examination pattern.
+
+
+==================================================
+PROJECT ROAD MAP
+==================================================
+
+PHASE 1
+PDF upload + text extraction
+
+PHASE 2
+Chapter/unit detection
+
+PHASE 3
+Chapter selection
+
+PHASE 4
+AI MCQ generation
+
+PHASE 5
+Short and long questions
+
+PHASE 6
+Complete question paper
+
+PHASE 7
+Answer key
+
+PHASE 8
+DOCX/PDF export
+
+PHASE 9
+GitHub
+
+PHASE 10
+Streamlit deployment
+
+
+==================================================
+IMPORTANT
+==================================================
+
+Always review AI-generated questions before using them in an examination.
+
+The application should be treated as a question-paper drafting tool. Teachers should verify that every question and answer accurately represents the textbook content and matches the required curriculum.
